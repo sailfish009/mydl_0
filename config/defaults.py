@@ -390,10 +390,32 @@ _C.MODEL.FBNET.RPN_BN_TYPE = ""
 # ---------------------------------------------------------------------------- #
 # Solver
 # ---------------------------------------------------------------------------- #
-_C.SOLVER = CN()
-_C.SOLVER.MAX_ITER = 40000
 
-_C.SOLVER.BASE_LR = 0.001
+################################
+# Equivalent schedules with...
+# 1 GPU:
+#   BASE_LR: 0.0025
+#   MAX_ITER: 60000
+#   STEPS: [0, 30000, 40000]
+# 2 GPUs:
+#   BASE_LR: 0.005
+#   MAX_ITER: 30000
+#   STEPS: [0, 15000, 20000]
+# 4 GPUs:
+#   BASE_LR: 0.01
+#   MAX_ITER: 15000
+#   STEPS: [0, 7500, 10000]
+# 8 GPUs:
+#   BASE_LR: 0.02
+#   MAX_ITER: 7500
+#   STEPS: [0, 3750, 5000]
+################################
+
+
+_C.SOLVER = CN()
+_C.SOLVER.MAX_ITER = 60000
+
+_C.SOLVER.BASE_LR = 0.0025
 _C.SOLVER.BIAS_LR_FACTOR = 2
 
 _C.SOLVER.MOMENTUM = 0.9
@@ -410,6 +432,7 @@ _C.SOLVER.WARMUP_METHOD = "linear"
 
 _C.SOLVER.CHECKPOINT_PERIOD = 2500
 _C.SOLVER.TEST_PERIOD = 0
+
 
 # Number of images per batch
 # This is global, so if we have 8 GPUs and IMS_PER_BATCH = 16, each GPU will
