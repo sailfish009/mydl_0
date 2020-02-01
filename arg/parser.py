@@ -10,7 +10,9 @@ def get_args(desc=""):
     cwd = pathlib.Path(__file__).parent.absolute()
     parser.add_argument(
         "--config-file",
-        default= str(cwd) + "/configs/caffe2/e2e_mask_rcnn_R_50_FPN_1x_caffe2.yaml",
+        default= str(cwd) + "/configs/default/human_protein.yaml",
+        ### previous default config file
+        # default= str(cwd) + "/configs/caffe2/e2e_mask_rcnn_R_50_FPN_1x_caffe2.yaml",
         metavar="FILE",
         help="path to config file",
     )

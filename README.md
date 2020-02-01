@@ -9,10 +9,10 @@ note:
 
 _C.so : maskrcnn-benchmark(name replaced with mydl) C compiled module
 
-$ git clone https://github.com/sailfish009/maskrcnn-benchmark
+git clone https://github.com/sailfish009/maskrcnn-benchmark
 
-$ cd maskrcnn-benchmark
+cd maskrcnn-benchmark
 
-$ python setup.py build
+python3 setup.py build
 
-$ cp build/lib.linux-x86_64-3.7/mydl/_C.cpython-37m-x86_64-linux-gnu.so ../mydl/_C.so
+cp build/lib.linux-x86_64-3.7/mydl/_C.cpython-xxm-x86_64-linux-gnu.so ../mydl/_C.so
